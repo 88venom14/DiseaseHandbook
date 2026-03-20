@@ -5,10 +5,9 @@
 ## Стек
 
 * **Фреймворк:** Expo SDK 52
-* **Навигация:** Expo Router v4 (файловый роутинг)
-* **Язык:** TypeScript (строгая типизация)
-* **Стилизация:** NativeWind / Tailwind CSS
-* **Состояние:** Zustand
+* **Навигация:** Expo Router
+* **Язык:** TypeScript
+* **Стилизация:** CSS
 * **Источник данных:** Google Sheets API v4
 * **Кэширование:** AsyncStorage
 
