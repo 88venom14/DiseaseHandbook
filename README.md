@@ -51,7 +51,7 @@ id	name	category	symptoms	causes	treatments	warning_level	image_url
 
 ## Структура проекта
 
-```cmd
+```
 └── 📁DiseaseHandbook
 |    └── devices.json
 ├── 📁app
