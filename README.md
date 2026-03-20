@@ -1,10 +1,10 @@
 Markdown
 
-# Disease Handbook
+## Справочник болезней
 
-Медицинский справочный гид, разработанный с использованием Expo, React Native и TypeScript. Поддерживает работу на iOS, Android и в Web-интерфейсе.
+Медицинский справочный гид, разработанный с использованием Expo, React Native и TypeScript. Поддерживает работу на iOS, Android и в Web.
 
-## Технический стек
+## Стек
 
 * **Фреймворк:** Expo SDK 52
 * **Навигация:** Expo Router v4 (файловый роутинг)
@@ -16,7 +16,7 @@ Markdown
 
 ---
 
-## Быстрый старт
+# Запуск
 
 1. **Установка зависимостей:**
    ```cmd
@@ -39,7 +39,7 @@ Markdown
     # Веб-версия
     npx expo start --web
 
-Настройка Google Таблицы
+# Настройка Google Таблицы
 
 Для корректной работы приложения создайте таблицу со следующими заголовками в первой строке:
 id	name	category	symptoms	causes	treatments	warning_level	image_url
@@ -49,14 +49,12 @@ id	name	category	symptoms	causes	treatments	warning_level	image_url
 |d001 | ...  |   ...    |   ...    |   ...  |    ...     |      ...      |    ...    |
     
     id: Уникальный идентификатор (например, d001).
-
     warning_level: Одно из значений: low, medium, high, critical.
-
     symptoms: Список симптомов через запятую.
 
-Структура проекта
+## Структура проекта
 
-```powershell
+```cmd
 └── 📁DiseaseHandbook
 |    └── devices.json
 ├── 📁app
