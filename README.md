@@ -4,7 +4,7 @@
 
 ## Стек
 
-* **Фреймворк:** Expo SDK 52
+* **Фреймворк:** REACT, REACT-NATIVE, Expo SDK 52
 * **Навигация:** Expo Router
 * **Язык:** TypeScript
 * **Стилизация:** CSS
