@@ -19,7 +19,7 @@ Markdown
 ## Быстрый старт
 
 1. **Установка зависимостей:**
-   ```bash
+   ```cmd
    npm install
 
     Настройка окружения:
@@ -44,7 +44,10 @@ Markdown
 Для корректной работы приложения создайте таблицу со следующими заголовками в первой строке:
 id	name	category	symptoms	causes	treatments	warning_level	image_url
 Формат данных:
-
+| id  | name | category | symptoms | causes | treatments | warning_level | image_url |
+|-----|------|----------|----------|--------|------------|---------------|-----------|
+|d001 | ...  |   ...    |   ...    |   ...  |    ...     |      ...      |    ...    |
+    
     id: Уникальный идентификатор (например, d001).
 
     warning_level: Одно из значений: low, medium, high, critical.
