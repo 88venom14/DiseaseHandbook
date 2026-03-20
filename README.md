@@ -56,28 +56,56 @@ id	name	category	symptoms	causes	treatments	warning_level	image_url
 
 Структура проекта
 
-    app/ — Экраны и логика роутинга (включая динамический роут [diseaseId]).
-
-    components/ — Переиспользуемые UI-компоненты (карточки, поиск, скелетоны).
-
-    hooks/ — Кастомные хуки для фильтрации, поиска и загрузки данных.
-
-    services/ — Слой API для интеграции с Google Sheets.
-
-    store/ — Глобальное управление состоянием (Zustand).
-
-    utils/ — Вспомогательные функции и логика кэширования.
-
-Оптимизация и безопасность
-
-    Безопасность: Переменные с префиксом EXPO_PUBLIC_ доступны в клиентском коде. Для защиты ключей в продакшене рекомендуется использовать серверный прокси.
-
-    Web-версия: Реализованы состояния наведения (hover), адаптивная сетка (1 колонка для мобильных, 2 для десктопа) и базовая SEO-оптимизация.
-
-    Доступность: Все интерактивные элементы поддерживают accessibilityLabel и соответствуют стандартам WCAG AA.
+```powershell
+└── 📁DiseaseHandbook
+|    └── devices.json
+├── 📁app
+|    └── 📁[diseaseId]
+|    |   └── index.tsx
+|    └── 📁categories
+|    |   └── index.tsx
+|    ├── _layout.tsx
+|    ├── global.css
+|    └── index.tsx
+├── 📁assets
+|    └── 📁icons
+|    |   ├── adaptive-icon.png
+|    |   ├── app-icon.png
+|    |   └── favicon.png
+|    └── 📁images
+|        └── splash.png
+├── 📁components
+|    ├── CategorySelector.tsx
+|    ├── CollapsibleSection.tsx
+|    ├── DiseaseCard.tsx
+|    ├── LoadingSkeleton.tsx
+|    └── SearchBar.tsx
+├── 📁hooks
+|    ├── useCategoryFilter.ts
+|    ├── useDiseases.ts
+|    └── useSearch.ts
+├── 📁services
+|    ├── diseaseService.ts
+├── 📁store
+|    └── diseasesStore.ts
+├── 📁types
+|    └── disease.ts
+├── 📁utils
+|    ├── constants.js
+|    ├── constants.ts
+|    └── fetchWithCache.ts
+|
+├── app.config.ts
+|
+├── package-lock.json
+|
+├── package.json
+|
+├── tailwind.config.js
+|
+└── tsconfig.json
+```
 
 Поддержка платформ
-Платформа	Статус	Примечания
-iOS	Поддерживается	Нативная навигация через табы
-Android	Поддерживается	Нативная навигация через табы
-Web	Поддерживается	Адаптивный дизайн, hover-эффекты
+Android/ios
+Web
