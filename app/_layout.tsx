@@ -3,11 +3,6 @@ import { Tabs } from "expo-router";
 import { Platform, useWindowDimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-/**
- * Root layout — Tab-based navigation.
- * Mobile: bottom tabs.
- * Web (wide): styled for desktop.
- */
 export default function RootLayout() {
   const { width } = useWindowDimensions();
   const isDesktop = Platform.OS === "web" && width >= 1024;

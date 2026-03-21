@@ -11,12 +11,10 @@ interface DiseasesState {
   searchQuery: string;
   selectedCategory: string | null;
 
-  // Actions
   loadDiseases: () => Promise<void>;
   setSearchQuery: (query: string) => void;
   setSelectedCategory: (category: string | null) => void;
 
-  // Computed values (memoized)
   filteredDiseases: Disease[];
   getFeaturedDiseases: Disease[];
   getDiseaseById: (id: string) => Disease | undefined;
@@ -44,7 +42,6 @@ export const useDiseasesStore = create<DiseasesState>((set, get) => ({
   loadDiseases: async () => {
     set({ isLoading: true, error: null });
     try {
-      // Try cache first
       const cached = await getCachedData<Disease[]>();
       if (cached && cached.length > 0) {
         set({
@@ -67,7 +64,6 @@ export const useDiseasesStore = create<DiseasesState>((set, get) => ({
         return;
       }
 
-      // No cache — fetch from API
       const data = await fetchDiseases();
       await setCachedData(data);
       set({
@@ -93,7 +89,6 @@ export const useDiseasesStore = create<DiseasesState>((set, get) => ({
     updateComputed(set, get);
   },
 
-  // Computed values - will be updated via updateComputed hook
   filteredDiseases: [],
   getFeaturedDiseases: [],
   getDiseaseById: (id: string) => {
@@ -101,9 +96,6 @@ export const useDiseasesStore = create<DiseasesState>((set, get) => ({
   },
 }));
 
-/**
- * Helper function to compute filtered diseases based on current state
- */
 function computeFilteredDiseases(
   diseases: Disease[],
   searchQuery: string,
@@ -130,19 +122,12 @@ function computeFilteredDiseases(
   return result;
 }
 
-/**
- * Helper function to get featured diseases (high/critical warning level)
- */
 function computeFeaturedDiseases(diseases: Disease[]): Disease[] {
   return diseases
     .filter((d) => d.warning_level === "high" || d.warning_level === "critical")
     .slice(0, 6);
 }
 
-/**
- * Update computed values when dependencies change
- * Call this after updating diseases, searchQuery, or selectedCategory
- */
 function updateComputed(set: any, get: any) {
   const { diseases, searchQuery, selectedCategory } = get();
   set({

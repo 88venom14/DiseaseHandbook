@@ -2,9 +2,6 @@ import { useCallback, useMemo } from "react";
 import { useDiseasesStore } from "@/store/diseasesStore";
 import { Disease } from "@/types/disease";
 
-/**
- * Hook for search functionality with score-based ranking.
- */
 export function useSearch() {
   const searchQuery = useDiseasesStore((s) => s.searchQuery);
   const setSearchQuery = useDiseasesStore((s) => s.setSearchQuery);

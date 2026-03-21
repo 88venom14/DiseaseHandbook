@@ -1,9 +1,6 @@
 import { useCallback } from "react";
 import { useDiseasesStore } from "@/store/diseasesStore";
 
-/**
- * Hook for category filtering.
- */
 export function useCategoryFilter() {
   const categories = useDiseasesStore((s) => s.categories);
   const selectedCategory = useDiseasesStore((s) => s.selectedCategory);
@@ -12,7 +9,6 @@ export function useCategoryFilter() {
 
   const selectCategory = useCallback(
     (category: string | null) => {
-      // Toggle: if clicking the same category, deselect it
       setSelectedCategory(category === selectedCategory ? null : category);
     },
     [selectedCategory, setSelectedCategory]

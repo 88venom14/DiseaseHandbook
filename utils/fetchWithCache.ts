@@ -2,26 +2,21 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Platform } from "react-native";
 
 const CACHE_KEY = "disease_handbook_cache";
-const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL_MS = 30 * 60 * 1000;
 
 interface CacheEntry<T> {
   data: T;
   timestamp: number;
 }
 
-/**
- * Get cached data if it exists and has not expired.
- */
 export async function getCachedData<T>(): Promise<T | null> {
   try {
-    // On web, use localStorage as fallback if AsyncStorage is not available
     let raw: string | null = null;
 
     if (Platform.OS === "web") {
       try {
         raw = typeof localStorage !== "undefined" ? localStorage.getItem(CACHE_KEY) : null;
       } catch {
-        // localStorage may be unavailable in some environments
         raw = null;
       }
     } else {
@@ -40,7 +35,6 @@ export async function getCachedData<T>(): Promise<T | null> {
             localStorage.removeItem(CACHE_KEY);
           }
         } catch {
-          // Ignore
         }
       } else {
         await AsyncStorage.removeItem(CACHE_KEY);
@@ -54,9 +48,6 @@ export async function getCachedData<T>(): Promise<T | null> {
   }
 }
 
-/**
- * Save data to AsyncStorage cache with current timestamp.
- */
 export async function setCachedData<T>(data: T): Promise<void> {
   try {
     const entry: CacheEntry<T> = {
@@ -70,7 +61,6 @@ export async function setCachedData<T>(data: T): Promise<void> {
           localStorage.setItem(CACHE_KEY, JSON.stringify(entry));
         }
       } catch {
-        // localStorage may be unavailable in some environments
       }
     } else {
       await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(entry));
@@ -80,9 +70,6 @@ export async function setCachedData<T>(data: T): Promise<void> {
   }
 }
 
-/**
- * Invalidate / clear the cache.
- */
 export async function clearCache(): Promise<void> {
   try {
     if (Platform.OS === "web") {
@@ -91,7 +78,6 @@ export async function clearCache(): Promise<void> {
           localStorage.removeItem(CACHE_KEY);
         }
       } catch {
-        // Ignore
       }
     } else {
       await AsyncStorage.removeItem(CACHE_KEY);

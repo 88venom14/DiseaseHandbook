@@ -1,6 +1,3 @@
-/**
- * Disease interface matching Google Sheets schema columns.
- */
 export interface Disease {
   id: string;
   name: string;
@@ -12,18 +9,12 @@ export interface Disease {
   image_url?: string;
 }
 
-/**
- * Category type derived from diseases
- */
 export interface Category {
   name: string;
   count: number;
   icon?: string;
 }
 
-/**
- * Possible loading / error states
- */
 export interface DataState<T> {
   data: T | null;
   isLoading: boolean;

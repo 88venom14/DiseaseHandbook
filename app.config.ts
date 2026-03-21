@@ -36,5 +36,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     googleSheetsApiKey: process.env.EXPO_PUBLIC_GOOGLE_SHEETS_API_KEY,
     googleSheetsSpreadsheetId: process.env.EXPO_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID,
     googleSheetsSheetName: process.env.EXPO_PUBLIC_GOOGLE_SHEETS_SHEET_NAME ?? "diseases",
+    eas: {
+      projectId: "c7cebde3-9377-4578-b1c9-a28156536bc9",
+    },
   },
 });

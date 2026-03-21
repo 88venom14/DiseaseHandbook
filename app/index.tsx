@@ -16,9 +16,6 @@ import { CategorySelector } from "@/components/CategorySelector";
 import { DiseaseCard } from "@/components/DiseaseCard";
 import { DiseaseCardSkeleton } from "@/components/LoadingSkeleton";
 
-/**
- * Home Screen — featured diseases, search, category filters, full list.
- */
 export default function HomeScreen() {
   const { isLoading, error, reload, getFeaturedDiseases } = useDiseases();
   const {
