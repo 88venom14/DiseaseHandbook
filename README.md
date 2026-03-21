@@ -100,3 +100,5 @@ id	name	category	symptoms	causes	treatments	warning_level	image_url
 Поддержка платформ
 Android/ios
 Web
+
+https://docs.google.com/spreadsheets/d/1vSsGJU3G0vfOd76UKNXieJCtTCN6GlQhggv86axldiU/edit?usp=drivesdk
