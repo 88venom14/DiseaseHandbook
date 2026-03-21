@@ -33,9 +33,8 @@
     npx expo start --web
    ```
 
-## Настройка Google Таблицы
+## Google Таблицы
 
-Для корректной работы приложения создайте таблицу со следующими заголовками в первой строке:
 id	name	category	symptoms	causes	treatments	warning_level	image_url
 Формат данных:
 | id  | name | category | symptoms | causes | treatments | warning_level | image_url |
