@@ -20,21 +20,18 @@
    npm install
 
     Настройка окружения:
-    Создайте файл .env и добавьте ваши значения:
-    Фрагмент кода
+    Создайть файл .env и добавить значения:
 
-    EXPO_PUBLIC_GOOGLE_SHEETS_API_KEY=ваш_api_key
-    EXPO_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID=ваш_id_таблицы
-    EXPO_PUBLIC_GOOGLE_SHEETS_SHEET_NAME=diseases
+   EXPO_PUBLIC_GOOGLE_SHEETS_API_KEY=AIzaSyB7G4hKWWhjfyItwh4Dk_nuyGbH00VPM_I
+   EXPO_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID=1vSsGJU3G0vfOd76UKNXieJCtTCN6GlQhggv86axldiU
+   EXPO_PUBLIC_GOOGLE_SHEETS_SHEET_NAME=Лист1
 
     Запуск проекта:
-    Bash
-
-    # Все платформы
+   
     npx expo start
 
-    # Веб-версия
     npx expo start --web
+   ```
 
 ## Настройка Google Таблицы
 
