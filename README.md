@@ -1,80 +1,102 @@
-Markdown
+# Справочник болезней
 
-# Disease Handbook
+Медицинский справочный гид, разработанный с использованием Expo, React Native и TypeScript. Поддерживает работу на iOS, Android и в Web.
 
-Медицинский справочный гид, разработанный с использованием Expo, React Native и TypeScript. Поддерживает работу на iOS, Android и в Web-интерфейсе.
+## Стек
 
-## Технический стек
-
-* **Фреймворк:** Expo SDK 52
-* **Навигация:** Expo Router v4 (файловый роутинг)
-* **Язык:** TypeScript (строгая типизация)
-* **Стилизация:** NativeWind / Tailwind CSS
-* **Состояние:** Zustand
+* **Фреймворк:** React, React-Native, Expo SDK 52
+* **Навигация:** Expo Router
+* **Язык:** TypeScript
+* **Стилизация:** CSS
 * **Источник данных:** Google Sheets API v4
 * **Кэширование:** AsyncStorage
 
 ---
 
-## Быстрый старт
+## Запуск
 
 1. **Установка зависимостей:**
-   ```bash
+   ```cmd
    npm install
 
     Настройка окружения:
-    Создайте файл .env и добавьте ваши значения:
-    Фрагмент кода
+    Создайть файл .env и добавить значения:
 
-    EXPO_PUBLIC_GOOGLE_SHEETS_API_KEY=ваш_api_key
-    EXPO_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID=ваш_id_таблицы
-    EXPO_PUBLIC_GOOGLE_SHEETS_SHEET_NAME=diseases
+   EXPO_PUBLIC_GOOGLE_SHEETS_API_KEY=AIzaSyB7G4hKWWhjfyItwh4Dk_nuyGbH00VPM_I
+   EXPO_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID=1vSsGJU3G0vfOd76UKNXieJCtTCN6GlQhggv86axldiU
+   EXPO_PUBLIC_GOOGLE_SHEETS_SHEET_NAME=Лист1
 
     Запуск проекта:
-    Bash
-
-    # Все платформы
+   
     npx expo start
 
-    # Веб-версия
     npx expo start --web
+   ```
 
-Настройка Google Таблицы
+## Google Таблицы
 
-Для корректной работы приложения создайте таблицу со следующими заголовками в первой строке:
 id	name	category	symptoms	causes	treatments	warning_level	image_url
 Формат данных:
-
+| id  | name | category | symptoms | causes | treatments | warning_level | image_url |
+|-----|------|----------|----------|--------|------------|---------------|-----------|
+|d001 | ...  |   ...    |   ...    |   ...  |    ...     |      ...      |    ...    |
+    
     id: Уникальный идентификатор (например, d001).
-
     warning_level: Одно из значений: low, medium, high, critical.
-
     symptoms: Список симптомов через запятую.
 
-Структура проекта
+## Структура проекта
 
-    app/ — Экраны и логика роутинга (включая динамический роут [diseaseId]).
-
-    components/ — Переиспользуемые UI-компоненты (карточки, поиск, скелетоны).
-
-    hooks/ — Кастомные хуки для фильтрации, поиска и загрузки данных.
-
-    services/ — Слой API для интеграции с Google Sheets.
-
-    store/ — Глобальное управление состоянием (Zustand).
-
-    utils/ — Вспомогательные функции и логика кэширования.
-
-Оптимизация и безопасность
-
-    Безопасность: Переменные с префиксом EXPO_PUBLIC_ доступны в клиентском коде. Для защиты ключей в продакшене рекомендуется использовать серверный прокси.
-
-    Web-версия: Реализованы состояния наведения (hover), адаптивная сетка (1 колонка для мобильных, 2 для десктопа) и базовая SEO-оптимизация.
-
-    Доступность: Все интерактивные элементы поддерживают accessibilityLabel и соответствуют стандартам WCAG AA.
+```
+└── 📁DiseaseHandbook
+|    └── devices.json
+├── 📁app
+|    └── 📁[diseaseId]
+|    |   └── index.tsx
+|    └── 📁categories
+|    |   └── index.tsx
+|    ├── _layout.tsx
+|    ├── global.css
+|    └── index.tsx
+├── 📁assets
+|    └── 📁icons
+|    |   ├── adaptive-icon.png
+|    |   ├── app-icon.png
+|    |   └── favicon.png
+|    └── 📁images
+|        └── splash.png
+├── 📁components
+|    ├── CategorySelector.tsx
+|    ├── CollapsibleSection.tsx
+|    ├── DiseaseCard.tsx
+|    ├── LoadingSkeleton.tsx
+|    └── SearchBar.tsx
+├── 📁hooks
+|    ├── useCategoryFilter.ts
+|    ├── useDiseases.ts
+|    └── useSearch.ts
+├── 📁services
+|    ├── diseaseService.ts
+├── 📁store
+|    └── diseasesStore.ts
+├── 📁types
+|    └── disease.ts
+├── 📁utils
+|    ├── constants.js
+|    ├── constants.ts
+|    └── fetchWithCache.ts
+|
+├── app.config.ts
+|
+├── package-lock.json
+|
+├── package.json
+|
+├── tailwind.config.js
+|
+└── tsconfig.json
+```
 
 Поддержка платформ
-Платформа	Статус	Примечания
-iOS	Поддерживается	Нативная навигация через табы
-Android	Поддерживается	Нативная навигация через табы
-Web	Поддерживается	Адаптивный дизайн, hover-эффекты
+Android/ios
+Web
